@@ -1,4 +1,4 @@
-<form method="post" action="/figures/show/:id">
+<form method="post" action="/figures/:id">
   <label>create a new figure</label><br></br>
   name: <input type="text" name="figure[name]" id="figure_name"><br></br>
 
@@ -6,11 +6,11 @@
   <input type="text" name="title[name]" id="new_title"><br></br>
   <% Title.all.each do |t| %>
   <input type="checkbox" name="figure[title_ids][]" id="title_<%= t.id %>"><%= t.name %>
-  <% end %>
+  <% end %><br></br>
 
   <label>add and/or select existing landmarks</label><br></br>
   <input type="text" name="landmark[name]" id="new_landmark"><br></br>
-  <% Landmark.all.each do |land| %>
+  <% Landmark.all.each do |land| %><br></br>
   <input type="checkbox" name="figure[landmark_ids][]"id="landmark_<%= land.id %>"><%= land.name %>
   <% end %>
 
