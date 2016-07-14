@@ -1,0 +1,16 @@
+<form method="post" action="/figures/<%= @figure.id %>">
+  edit figure: <%= @figure.name %>
+  <input type="text" name="figure[name]" id="figure_name"><br></br>
+
+  add a new, or select an existing, title
+  <input type="text" id="new_title" name="title[name]"><br></br>
+  <% Title.all.each do |t| %>
+  <input type="checkbox" name="figure[title_ids][]" id="title_<%= t.id %>" value="<%= t.id %>"><%= t.name %>
+  <% end %><br></br>
+  add a new, or select an existing, landmark
+  <input type="text" id="new_landmark" name="landmark[name]"><br></br>
+  <% Landmark.all.each do |land| %>
+  <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%= land.id %>" value="<%= land.id %>"><%= land.name %>
+  <% end %><br></br>
+  <input type="submit" value="Edit Figure">
+</form>
